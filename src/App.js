@@ -53,6 +53,7 @@ class App extends Component {
               <SearchBox
                 placeholder="Search Pokemons"
                 handleChange={(e) => this.setState({ search: e.target.value })}
+                value={this.state.search}
               />
               {this.state.search === "" ? (
                 <Cardlist
