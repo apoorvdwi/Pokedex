@@ -35,7 +35,7 @@ const Card = (props) => {
 
   const getPokemon = async (id) => {
     const main_types = Object.keys(colors);
-    const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
     const res = await fetch(url);
     const pokemon = await res.json();
     const poke_types = pokemon.types.map((type) => type.type.name);
@@ -47,9 +47,9 @@ const Card = (props) => {
       imgURL =
         "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" +
         String(id).padStart(3, "0") +
-        ".png";
+        ".png/";
     } else {
-      imgURL = "https://pokeres.bastionbot.org/images/pokemon/" + id + ".png";
+      imgURL = "https://pokeres.bastionbot.org/images/pokemon/" + id + ".png/";
     }
 
     setData((prevState) => {

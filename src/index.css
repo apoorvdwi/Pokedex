@@ -16,6 +16,18 @@ body {
   -o-user-select: none;
 }
 
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #ef605c;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #fff;
+  }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

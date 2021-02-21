@@ -66,12 +66,12 @@ export default class Pokemon extends Component {
       imageUrl =
         "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" +
         String(pokemonIndex).padStart(3, "0") +
-        ".png";
+        ".png/";
     } else {
       imageUrl =
         "https://pokeres.bastionbot.org/images/pokemon/" +
         pokemonIndex +
-        ".png";
+        ".png/";
     }
 
     let { hp, attack, defense, speed, specialAttack, specialDefense } = "";
@@ -99,6 +99,7 @@ export default class Pokemon extends Component {
         default:
           break;
       }
+      return true;
     });
 
     const height =
@@ -139,10 +140,11 @@ export default class Pokemon extends Component {
 
     await Axios.get(pokemonSpeciesUrl).then((res) => {
       let description = "";
-      res.data.flavor_text_entries.some((flavor) => {
+      description = res.data.flavor_text_entries.some((flavor) => {
         if (flavor.language.name === "en") {
-          description = flavor.flavor_text;
-          return;
+          return flavor.flavor_text;
+        } else {
+          return "";
         }
       });
       const femaleRate = res.data["gender_rate"];
